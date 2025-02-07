@@ -23,5 +23,12 @@
 import sys
 from os.path import dirname
 
+try:
+    import google.protobuf as google_protobuf
+    import cosmpy.protos.google.protobuf as cosmpy_google_protobuf
+
+    google_protobuf.__path__ = [*google_protobuf.__path__, *cosmpy_google_protobuf.__path__]
+except ImportError:
+    pass
 
 sys.path.append(dirname(__file__))
